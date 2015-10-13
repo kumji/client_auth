@@ -14,11 +14,11 @@ module.exports = function(app) {
     };
 
     $scope.sendToServer = function(user) {
-      $http.post('/api/users/signup', user)
+      $http.post('/users/signup', user)
         .then(function(res) {
           console.log(res.data);
           //save token into cookie
-          $location.path('/api/stocks/list');
+          $location.path('/stocks/list');
         }, function(res) {
           console.log(res);
         });

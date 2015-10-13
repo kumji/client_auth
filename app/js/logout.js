@@ -7,7 +7,7 @@ module.exports = function(app) {
 
     $scope.logOut = function() {
       $cookies.remove('eat');
-      $location.path('/api/users/signin');
+      $location.path('/users/signin');
     };
 
     $scope.getUserName = function(callback) {
@@ -17,7 +17,7 @@ module.exports = function(app) {
 
       $http({
         method: 'GET',
-        url: '/api/users/username',
+        url: '/users/username',
         headers: {
           token: eat
         }

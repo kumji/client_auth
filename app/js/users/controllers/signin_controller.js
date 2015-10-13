@@ -5,13 +5,13 @@ module.exports = function(app) {
     $scope.changePlacesText = 'Or Create a New User';
 
     $scope.changePlaces = function() {
-      return $location.path('/signup');
+      return $location.path('/users/signup');
     };
 
     $scope.sendToServer = function(user) {
       $http({
         method: 'GET',
-        url: '/api/users/signin',
+        url: '/users/signin',
         headers: {
           'Authorization': 'Basic ' + $base64.encode(user.username + ':' + user.password)
         }
@@ -19,7 +19,7 @@ module.exports = function(app) {
         .then(function(res) {
           $cookies.put('eat', res.data.token);
           $scope.getUserName();
-          $location.path('/api/stocks/list');
+          $location.path('/stocks/list');
         }, function(res) {
           console.log(res);
         });
